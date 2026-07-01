@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESIC Process Manual Portal</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            display: flex;
+            background-color: #f4f6f9;
+            color: #333;
+            min-height: 100vh;
+        }
+        /* Sidebar Design */
+        .sidebar {
+            width: 320px;
+            background-color: #1e293b;
+            color: #fff;
+            padding: 20px 10px;
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+        }
+        .sidebar h2 {
+            font-size: 20px;
+            text-align: center;
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #334155;
+            color: #38bdf8;
+        }
+        .menu-btn {
+            display: block;
+            width: 100%;
+            padding: 14px 15px;
+            background: none;
+            border: none;
+            color: #cbd5e1;
+            text-align: left;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            border-radius: 6px;
+            margin-bottom: 8px;
+            transition: all 0.3s ease;
+        }
+        .menu-btn:hover {
+            background-color: #334155;
+            color: #fff;
+        }
+        .menu-btn.active {
+            background-color: #0284c7;
+            color: #fff;
+        }
+        /* Main Content Container */
+        .main-content {
+            margin-left: 320px;
+            padding: 40px;
+            width: calc(100% - 320px);
+        }
+        .header-panel {
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            color: white;
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+        }
+        .header-panel h1 { font-size: 26px; }
+        .header-panel p { color: #94a3b8; font-size: 14px; margin-top: 5px; }
+
+        /* Content Sections layout */
+        .process-section {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+            display: none;
+            animation: fadeIn 0.4s ease-in-out;
+        }
+        .process-section.active-content { display: block; }
+        
+        h2 { color: #0f172a; margin-bottom: 15px; font-size: 22px; border-left: 5px solid #0284c7; padding-left: 10px; }
+        h3 { color: #1e293b; margin: 20px 0 10px 0; font-size: 16px; }
+        
+        ol, ul { margin-left: 20px; margin-bottom: 15px; }
+        li { margin-bottom: 8px; line-height: 1.6; font-size: 15px; }
+        
+        .note-box {
+            background-color: #f0fdf4;
+            border-left: 4px solid #22c55e;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        .note-box strong { color: #166534; }
+
+        .warning-box {
+            background-color: #fff7ed;
+            border-left: 4px solid #f97316;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        .warning-box strong { color: #9a3412; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="sidebar">
+        <h2>ESIC Operations</h2>
+        <button class="menu-btn active" onclick="showProcess('process1', this)">1. Card Download Process</button>
+        <button class="menu-btn" onclick="showProcess('process2', this)">2. Addition of Dependent</button>
+        <button class="menu-btn" onclick="showProcess('process3', this)">3. Addition of Nominee</button>
+        <button class="menu-btn" onclick="showProcess('process4', this)">4. IP Particular Correction</button>
+        <button class="menu-btn" onclick="showProcess('process5', this)">5. Address & Contact Update</button>
+    </div>
+
+    <div class="main-content">
+        <div class="header-panel">
+            <h1>Standard Operating Procedures (SOP)</h1>
+            <p>Internal Manual for Employees & HR Personnel — Employees' State Insurance Corporation</p>
+        </div>
+
+        <div id="process1" class="process-section active-content">
+            <h2>1. ESIC Card (e-Pehchan) Download Process</h2>
+            <p style="margin-bottom:15px;">Follow these steps to safely access and download your digitized ESIC identity card:</p>
+            <h3>A. Self-Download via Member Portal</h3>
+            <ol>
+                <li>Go to the official website: <strong>esic.gov.in</strong>.</li>
+                <li>Navigate to the <strong>Insured Person/Beneficiary Login</strong> section.</li>
+                <li>Enter your unique 17-digit <strong>Insurance Number (IP Number)</strong> as the User ID and submit your password. Complete the Captcha challenge.</li>
+                <li>On the main dashboard, look for the link labeled <strong>"View/Download e-Pehchan Card"</strong>.</li>
+                <li>Verify your profile data summary on screen, then click <strong>Download PDF</strong>.</li>
+            </ol>
+            <h3>B. Alternate Download via UMANG App</h3>
+            <ol>
+                <li>Open the <strong>UMANG Mobile App</strong> on your smartphone.</li>
+                <li>Search for <strong>ESIC Department Services</strong>.</li>
+                <li>Select <strong>"Download e-Pehchan Card"</strong>, verify via the OTP sent to your registered mobile, and save the document.</li>
+            </ol>
+            <div class="note-box">
+                <strong>Pro-Tip:</strong> Once printed on a plain sheet of paper, get it counter-signed and stamped by your employer's HR group to ensure instant approval during hospital admissions.
+            </div>
+        </div>
+
+        <div id="process2" class="process-section">
+            <h2>2. Addition of Dependent Family Members</h2>
+            <p style="margin-bottom:15px;">To extend medical privileges to immediate family members, additions must be filed digitally through the employer dashboard:</p>
+            <h3>Action Steps:</h3>
+            <ol>
+                <li>The employee must provide clear copies of the dependent's **Aadhaar Card** and proof of dependency (such as a birth certificate for children or income declarations for parents) to the HR Desk.</li>
+                <li>The HR Administrator will log into the <strong>ESIC Employer Portal</strong>.</li>
+                <li>Go to <strong>Employee Profile Management → Register/Modify Employee Details</strong>.</li>
+                <li>Input the employee’s IP Number and open the <strong>"Family Details"</strong> tab.</li>
+                <li>Click on <strong>"Add Family Member"</strong>, fill in the exact name, date of birth, relationship status, and upload the Aadhaar copy as primary proof.</li>
+                <li>Submit the data changes. The portal updates immediately, modifying the structural layout of your e-Pehchan card dynamically.</li>
+            </ol>
+        </div>
+
+        <div id="process3" class="process-section">
+            <h2>3. Addition of Nominee in ESIC</h2>
+            <p style="margin-bottom:15px;">Nominations ensure smooth processing of cash benefits/gratuity processing under statutory claims:</p>
+            <h3>Action Steps:</h3>
+            <ol>
+                <li>The employer accesses the backend profile of the Insured Person (IP) using the Employer Code.</li>
+                <li>Select the <strong>"Update Nominee Details"</strong> segment from the interactive menu list.</li>
+                <li>Fill in the fields accurately: Full Legal Name, Relationship matrix (e.g., Spouse, Mother), current Residential Address, and dynamic share distribution percentage (totaling 100%).</li>
+                <li>Save information and generate the declaration print-out sheet. Have the employee verify and execute a physical signature for corporate records.</li>
+            </ol>
+        </div>
+
+        <div id="process4" class="process-section">
+            <h2>4. Process Note for IP Particular Correction</h2>
+            <p style="margin-bottom:15px;">Guidelines for correcting critical operational identity parameters such as Name, Date of Birth (DoB), Gender, or Father's Name:</p>
+            <h3>Correction Workflow:</h3>
+            <ol>
+                <li><strong>Initiation:</strong> The employee submits an offline correction request accompanied by an Aadhaar Card or official Government ID proofs.</li>
+                <li><strong>Online Submission:</strong> The Employer accesses the <strong>"Modify Employee Details"</strong> gateway tool, selects fields requiring fixes, inputs correct data, and uploads the scanned legal credentials.</li>
+                <li><strong>Approval Processing Window:</strong> 
+                    <ul>
+                        <li>Minor corrections align automatically within the network dashboard.</li>
+                        <li>Critical corrections (e.g., a Date of Birth variance exceeding 3 years) route automatically to the local **ESIC Branch Office field queue** for review. Officials review and resolve submissions within a target window of 3 business days.</li>
+                    </ul>
+                </li>
+            </ol>
+            <div class="warning-box">
+                <strong>Warning Note:</strong> Ensure personal parameters mirror the text strings exactly as formatted on the Aadhaar Card database to bypass strict automated validations.
+            </div>
+        </div>
+
+        <div id="process5" class="process-section">
+            <h2>5. Process for Updation of Address & Contact Details</h2>
+            <p style="margin-bottom:15px;">Ensures systemic delivery updates and keeps your local dispensary maps accurately localized to your place of living:</p>
+            <h3>Action Steps:</h3>
+            <ol>
+                <li>Supply updated demographic documents (Aadhaar or Rent agreements) and your active working phone number to the corporate processing department.</li>
+                <li>The HR representative loads the online account profile via the Employer Login portal.</li>
+                <li>Select the specific tabs: <strong>"Update Residential/Permanent Address"</strong> and <strong>"Change Mobile Details"</strong>.</li>
+                <li>Save the entries to trigger updates across the server grid. A verification confirmation code is dispatched to the updated mobile endpoint tracking index.</li>
+            </ol>
+        </div>
+    </div>
+
+    <script>
+        function showProcess(processId, button) {
+            // Hide all text sections
+            const sections = document.querySelectorAll('.process-section');
+            sections.forEach(section => {
+                section.classList.remove('active-content');
+            });
+
+            // Remove highlight states from menu panel buttons
+            const buttons = document.querySelectorAll('.menu-btn');
+            buttons.forEach(btn => {
+                btn.classList.remove('active');
+            });
+
+            // Make the targeted content element visible & assign button layout active styling state
+            document.getElementById(processId).classList.add('active-content');
+            button.classList.add('active');
+        }
+    </script>
+</body>
+</html>
