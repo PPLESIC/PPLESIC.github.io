@@ -1,0 +1,387 @@
+HTML
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESIC Helpdesk User Manual</title>
+    <style>
+        :root {
+            --primary-color: #0056b3;
+            --secondary-color: #f8f9fa;
+            --text-color: #333333;
+            --accent-color: #e6f0fa;
+            --border-color: #cccccc;
+            --success-color: #28a745;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: #f4f6f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Header Style */
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 2rem 1rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.2rem;
+            letter-spacing: 0.5px;
+        }
+
+        header p {
+            margin: 0.5rem 0 0 0;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* Container */
+        .container {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        /* Dropdown Section */
+        .dropdown-section {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            margin-bottom: 1.5rem;
+        }
+
+        .dropdown-section label {
+            display: block;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        .select-menu {
+            width: 100%;
+            padding: 0.75rem;
+            font-size: 1rem;
+            border: 2px solid var(--border-color);
+            border-radius: 6px;
+            background-color: white;
+            cursor: pointer;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .select-menu:focus {
+            border-color: var(--primary-color);
+        }
+
+        /* Content Display Box */
+        .content-box {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            min-height: 150px;
+        }
+
+        .guide-content {
+            display: none;
+        }
+
+        .guide-content.active {
+            display: block;
+            animation: fadeIn 0.4s ease;
+        }
+
+        /* Step Styles */
+        .step {
+            margin-bottom: 1.5rem;
+            padding-left: 1rem;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .step-title {
+            font-weight: bold;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            font-size: 0.95rem;
+            margin-bottom: 0.25rem;
+        }
+
+        /* Document list styles */
+        .doc-section {
+            background-color: var(--accent-color);
+            padding: 1rem 1.5rem;
+            border-radius: 6px;
+            margin-top: 1.5rem;
+        }
+
+        .doc-section h4 {
+            margin-top: 0;
+            color: #003d80;
+        }
+
+        ul {
+            padding-left: 1.2rem;
+            margin: 0.5rem 0;
+        }
+
+        li {
+            margin-bottom: 0.4rem;
+        }
+
+        .placeholder-text {
+            color: #666;
+            text-align: center;
+            font-style: italic;
+            padding: 2rem 0;
+        }
+
+        /* Support Bar */
+        .support-bar {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            left: 0;
+            box-sizing: border-box;
+            font-size: 0.95rem;
+            box-shadow: 0 -4px 10px rgba(0,0,0,0.15);
+        }
+
+        .support-bar a {
+            color: #38ef7d;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .support-bar span {
+            margin: 0 15px;
+        }
+
+        /* Spacing for fixed footer */
+        .main-content {
+            margin-bottom: 80px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>🏥 ESIC User Manual</h1>
+        <p>Employee Self-Service Helpdesk & Knowledge Base</p>
+    </header>
+
+    <div class="container main-content">
+        
+        <div class="dropdown-section">
+            <label for="querySelector">Select Your Query:</label>
+            <select id="querySelector" class="select-menu" onchange="showQueryContent()">
+                <option value="">-- Please select a query --</option>
+                <option value="download-card">1. How To Download ESIC Card?</option>
+                <option value="add-dependent">2. How to add dependent in ESIC?</option>
+                <option value="add-nominee">3. How to add Nominee in ESIC?</option>
+                <option value="update-personal">4. How to update personal details in ESIC?</option>
+            </select>
+        </div>
+
+        <div class="content-box" id="contentBox">
+            <div id="placeholder" class="placeholder-text">
+                Please select a query from the dropdown menu above to view step-by-step instructions.
+            </div>
+
+            <div id="download-card" class="guide-content">
+                <h2>How To Download ESIC Card?</h2>
+                <hr>
+                <div class="step">
+                    <div class="step-title">Step 1</div>
+                    <p>Login to the ESIC Employee Portal. Once you open the portal, select the <strong>Insured Person</strong> option.</p>
+                </div>
+                <div class="step">
+                    <div class="step-title">Step 2</div>
+                    <p>After selecting Insured Person, the web page will redirect you to the Employee Login Portal.</p>
+                </div>
+                <div class="step">
+                    <div class="step-title">Step 3</div>
+                    <p>Login with your ESIC IP Number.</p>
+                    <p><em>*If you forgot your password: Select 'Forgot Password'. It will send an OTP to your registered mobile number. Enter the OTP to generate a new password and log in.</em></p>
+                </div>
+                <div class="step">
+                    <div class="step-title">Step 4</div>
+                    <p>After log-in is successful, you will see the main Dashboard interfaces.</p>
+                </div>
+                <div class="step">
+                    <div class="step-title">Step 5</div>
+                    <p>Select the option <strong>Download e-Pehchan Card</strong>.</p>
+                </div>
+                <div class="step">
+                    <div class="step-title">Step 6</div>
+                    <p>Select <strong>VIEW OR E-PECHAN CARD</strong> and safely download your generated PDF file.</p>
+                </div>
+            </div>
+
+            <div id="add-dependent" class="guide-content">
+                <h2>How to add dependent in ESIC?</h2>
+                <hr>
+                <div class="step">
+                    <div class="step-title">Step 1</div>
+                    <p>Login to the ESIC Employee Portal. Once open, select the <strong>Insured Person</strong> option.</p>
+                </div>
+                <div class="step">
+                    <div class="step-title">Step 2</div>
+                    <p>The webpage redirects automatically to the Employee Login Portal window.</p>
+                </div>
+                <div class="step">
+                    <div class="step-title">Step 3</div>
+                    <p>Log in using your unique ESIC IP Number. (Utilize 'Forgot Password' OTP recovery if needed).</p>
+                </div>
+                <div class="step">
+                    <div class="step-title">Step 4</div>
+                    <p>Once inside the dashboard, locate and select the <strong>Update Particulars</strong> menu option.</p>
+                </div>
+                <div class="step">
+                    <div class="step-title">Step 5</div>
+                    <p>From the Employee optional Dashboard, choose <strong>Family Details</strong>.</p>
+                </div>
+                <div class="step">
+                    <div class="step-title">Step 6</div>
+                    <p>The family tracking screen will load. Here, you can add/edit family dependents and map proofs. Click on the <strong>Edit</strong> link to adjust details or begin adding.</p>
+                </div>
+                <div class="step">
+                    <div class="step-title">Step 7</div>
+                    <p>Fill out the complete required information fields:</p>
+                    <ul>
+                        <li>Full Name (Exactly as written on Member's Identity document)</li>
+                        <li>Date of Birth & Gender</li>
+                        <li>Relationship classification (Spouse, Son, Daughter, Father, etc.)</li>
+                    </ul>
+                    <p>Choose the validation proof type from the dropdown, click <strong>Choose File</strong> to attach the document from your system (Max size allowed: <strong>200KB</strong>), and click <strong>Add</strong>.</p>
+                </div>
+                <p><strong>Result:</strong> A unique tracking reference number will generate successfully and the workflow shifts to 'Pending Approval'.</p>
+            </div>
+
+            <div id="add-nominee" class="guide-content">
+                <h2>How to add Nominee in ESIC?</h2>
+                <hr>
+                <div class="step">
+                    <div class="step-title">Step 1 - 3</div>
+                    <p>Access the ESIC Portal, choose <strong>Insured Person</strong>, and securely log in using your IP Number credentials.</p>
+                </div>
+                <div class="step">
+                    <div class="step-title">Step 4</div>
+                    <p>Navigate directly to the <strong>Update Particulars</strong> interface link.</p>
+                </div>
+                <div class="step">
+                    <div class="step-title">Step 5</div>
+                    <p>On your configuration dashboard, choose <strong>NOMINEE DETAILS</strong>.</p>
+                </div>
+                <div class="step">
+                    <div class="step-title">Step 6</div>
+                    <p>The system opens your updating tab area. Input required identity details and prepare your evidence files according to the rules below.</p>
+                </div>
+
+                <div class="doc-section">
+                    <h4>📋 Required Documents for Nominee Addition:</h4>
+                    <ul>
+                        <li><strong>For Mother:</strong> ID Proof, PAN Card, and an Income Certificate.</li>
+                        <li><strong>For Father:</strong> ID Proof, PAN Card, and a Notarized Income Certificate.</li>
+                        <li><strong>For Spouse:</strong> ID Proof, PAN Card, and an official Marriage Certificate.</li>
+                        <li><strong>For Children (Under 2 years old):</strong> Official Birth Certificate or ID Proof.</li>
+                        <li><strong>For Children (Over 2 years old):</strong> ID Card.</li>
+                        <li><strong>Bank Account Updates:</strong> Government ID Proof, Voter ID, PAN, or matching ID Card documents.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="update-personal" class="guide-content">
+                <h2>How to update personal details in ESIC?</h2>
+                <hr>
+                <div class="step">
+                    <div class="step-title">Step 1 - 3</div>
+                    <p>Open the portal, pick <strong>Insured Person</strong>, log in with your credentials, or perform a password reset if locked out.</p>
+                </div>
+                <div class="step">
+                    <div class="step-title">Step 4 - 5</div>
+                    <p>Select <strong>Update Particulars</strong> from your primary portal options, then click on <strong>PERSONAL DETAILS</strong>.</p>
+                </div>
+                <div class="step">
+                    <div class="step-title">Step 6</div>
+                    <p>The page displays edit boxes for your personal attributes. Update any information tracking error in the relevant mandatory sections.</p>
+                </div>
+                <div class="step">
+                    <div class="step-title">Step 7</div>
+                    <p>Select your proof category. Attach files matching formatting specifications (Allowed: <strong>PDF, JPG, JPEG</strong> | Maximum size limit: <strong>200KB</strong>).</p>
+                </div>
+                <div class="step">
+                    <div class="step-title">Step 8</div>
+                    <p>Click <strong>Upload</strong>. Carefully mark the consent/declaration checkbox fields, then click <strong>Update</strong> to submit your official correction request.</p>
+                </div>
+
+                <div class="doc-section">
+                    <h4>📋 Accepted Proofs for Specific Corrections:</h4>
+                    <ul>
+                        <li><strong>Name Change via Marriage (Females):</strong> ID Proof, Marriage Certificate.</li>
+                        <li><strong>Minor Corrections (Spelling/Clerical Errors):</strong> ID Card, PAN Card, or Voter ID.</li>
+                        <li><strong>Legal Name / Gender Amendments:</strong> Official Legally Notarized Affidavit.</li>
+                        <li><strong>Date of Birth Corrections:</strong> 10th Standard Marksheet, Registered Birth Certificate, or School Transfer Certificate (TC).</li>
+                        <li><strong>Spouse Linkage validation (Male Employee):</strong> Wife's ID Card showing husband's name, OR a Marriage Certificate.</li>
+                        <li><strong>Spouse Linkage validation (Female Employee):</strong> Her own ID Card showing husband's name, OR a Marriage Certificate.</li>
+                        <li><strong>Photo Updates:</strong> Clean Passport size photo clear image file.</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="support-bar">
+        For additional support reach out to us: 
+        <span>📧 Email: <a href="mailto:esic@phonepe.com">esic@phonepe.com</a></span> | 
+        <span>📞 Contact: <strong>9980817665</strong> (Mon–Fri, 10 AM – 6 PM)</span>
+    </div>
+
+    <script>
+        function showQueryContent() {
+            const selector = document.getElementById('querySelector');
+            const selectedValue = selector.value;
+            
+            // Hide all contents first
+            const contents = document.querySelectorAll('.guide-content');
+            contents.forEach(content => {
+                content.classList.remove('active');
+            });
+
+            // Hide or show placeholder 
+            const placeholder = document.getElementById('placeholder');
+            
+            if (selectedValue) {
+                placeholder.style.display = 'none';
+                const targetContent = document.getElementById(selectedValue);
+                if (targetContent) {
+                    targetContent.classList.add('active');
+                }
+            } else {
+                placeholder.style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>
