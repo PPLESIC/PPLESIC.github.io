@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESIC Helpdesk | Professional User Manual</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:wght@700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        /* 1. CORE RESET & THEME (Premium Corporate Style) */
+        :root {
+            --primary-navy: #00204a;    
+            --accent-gold: #ad8b3a;     
+            --bg-cream: #f9f7f2;        
+            --sidebar-bg: #001a3d;
+            --text-dark: #1a1a1a;
+            --text-muted: #555555;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-cream);
+            font-family: 'Roboto', sans-serif;
+            color: var(--text-dark);
+            height: 100vh;
+            overflow: hidden; 
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* 2. HEADER STYLE */
+        header {
+            background: var(--primary-navy);
+            padding: 25px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 3px solid var(--accent-gold);
+            z-index: 10;
+        }
+
+        header h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 26px;
+            color: #ffffff;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .portal-btn {
+            background: var(--accent-gold);
+            color: #fff;
+            padding: 12px 24px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(173, 139, 58, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .portal-btn:hover {
+            background: #8e712f;
+            transform: translateY(-2px);
+        }
+
+        /* 3. MAIN DASHBOARD LAYOUT */
+        .main-wrapper {
+            display: flex;
+            flex: 1;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Sidebar Navigation */
+        .sidebar {
+            width: 380px;
+            background: var(--sidebar-bg);
+            z-index: 2;
+            padding: 40px 0;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 10px 0 30px rgba(0,0,0,0.1);
+        }
+
+        .nav-item {
+            padding: 22px 40px;
+            color: rgba(255, 255, 255, 0.7);
+            cursor: pointer;
+            border-left: 4px solid transparent;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 15px;
+            font-weight: 500;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .nav-item i {
+            margin-right: 15px;
+            font-size: 18px;
+            color: var(--accent-gold);
+            width: 25px;
+            text-align: center;
+        }
+
+        .nav-item:hover {
+            background: rgba(255,255,255,0.05);
+            color: #fff;
+        }
+
+        .nav-item.active {
+            background: rgba(173, 139, 58, 0.15);
+            color: #fff;
+            border-left-color: var(--accent-gold);
+            font-weight: 700;
+        }
+
+        /* Content Area */
+        .content-area {
+            flex: 1;
+            z-index: 1;
+            padding: 60px;
+            overflow-y: auto;
+        }
+
+        .tab-content {
+            display: none;
+            max-width: 900px;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Process Steps Styling */
+        .slide-title-inner {
+            font-family: 'Playfair Display', serif;
+            font-size: 40px;
+            color: var(--primary-navy);
+            margin-bottom: 10px;
+        }
+
+        .divider {
+            width: 80px;
+            height: 4px;
+            background: var(--accent-gold);
+            margin-bottom: 40px;
+        }
+
+        .step-container {
+            position: relative;
+            margin-bottom: 30px;
+            background: #fff;
+            padding: 25px;
+            border-radius: 8px;
+            border: 1px solid #e0e0e0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+            transition: var(--transition);
+        }
+
+        .step-container:hover {
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border-color: var(--accent-gold);
+        }
+
+        .step-number {
+            position: absolute;
+            top: -15px;
+            left: 25px;
+            background: var(--primary-navy);
+            color: #fff;
+            padding: 4px 15px;
+            font-size: 12px;
+            font-weight: 700;
+            border-radius: 20px;
+            text-transform: uppercase;
+        }
+
+        .step-text {
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--text-dark);
+        }
+
+        .step-text strong {
+            color: var(--primary-navy);
+        }
+
+        ul {
+            padding-left: 20px;
+            margin-top: 10px;
+        }
+
+        li {
+            margin-bottom: 6px;
+        }
+
+        /* Portal Link Styling inside content */
+        .inline-link {
+            color: var(--accent-gold);
+            text-decoration: underline;
+            font-weight: 600;
+        }
+
+        /* Documentation Grid Layout */
+        .doc-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .doc-card {
+            background: #fff;
+            padding: 20px;
+            border-radius: 6px;
+            border-left: 5px solid var(--accent-gold);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.04);
+        }
+
+        .doc-card h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            color: var(--primary-navy);
+        }
+
+        .doc-card p {
+            font-size: 14px;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        /* 4. FOOTER - SUPPORT BAR */
+        .support-footer {
+            background: var(--primary-navy);
+            padding: 18px 60px;
+            color: rgba(255, 255, 255, 0.8);
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            font-size: 14px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            z-index: 10;
+        }
+
+        .support-footer span {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .support-footer i {
+            color: var(--accent-gold);
+            font-size: 18px;
+        }
+
+        .support-footer strong {
+            color: #fff;
+        }
+
+        /* Animations */
+        .fade-in-up {
+            animation: fadeInUp 0.4s ease-out forwards;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Scrollbar aesthetics */
+        .content-area::-webkit-scrollbar { width: 6px; }
+        .content-area::-webkit-scrollbar-thumb { background: #dcdcdc; border-radius: 10px; }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <div>
+            <h1>ESIC Helpdesk User Manual</h1>
+        </div>
+        <a href="https://www.esic.in/EmployeePortal/login.aspx" target="_blank" class="portal-btn">
+            <i class="fa-solid fa-right-to-bracket"></i> GO TO EMPLOYEE PORTAL
+        </a>
+    </header>
+
+    <div class="main-wrapper">
+        <nav class="sidebar">
+            <div class="nav-item active" onclick="showTab('download-card', this)">
+                <i class="fa-solid fa-address-card"></i> 1. Download ESIC Card
+            </div>
+            <div class="nav-item" onclick="showTab('add-dependent', this)">
+                <i class="fa-solid fa-users-rectangle"></i> 2. Add Dependent
+            </div>
+            <div class="nav-item" onclick="showTab('add-nominee', this)">
+                <i class="fa-solid fa-user-shield"></i> 3. Add Nominee
+            </div>
+            <div class="nav-item" onclick="showTab('update-personal', this)">
+                <i class="fa-solid fa-user-pen"></i> 4. Update Personal Details
+            </div>
+        </nav>
+
+        <main class="content-area">
+            
+            <div id="download-card" class="tab-content active fade-in-up">
+                <h2 class="slide-title-inner">Downloading Your e-Pehchan Card</h2>
+                <div class="divider"></div>
+
+                <div class="step-container">
+                    <span class="step-number">Step 01</span>
+                    <p class="step-text">Open the <a href="https://www.esic.in/EmployeePortal/login.aspx" target="_blank" class="inline-link">ESIC Employee Portal</a>. Once loaded, click on the <strong>Insured Person</strong> option.</p>
+                </div>
+
+                <div class="step-container">
+                    <span class="step-number">Step 02</span>
+                    <p class="step-text">The web page will safely redirect you to the designated <strong>Employee Login Portal</strong> interface.</p>
+                </div>
+
+                <div class="step-container">
+                    <span class="step-number">Step 03</span>
+                    <p class="step-text">Login with your credentials using your <strong>ESIC IP Number</strong>. <br><em>*If you forget your password, select 'Forget Password' to receive an OTP on your registered mobile number, generate a new password, and log in.</em></p>
+                </div>
+
+                <div class="step-container">
+                    <span class="step-number">Step 04</span>
+                    <p class="step-text">After a successful login, you will be presented with the main <strong>User Dashboards</strong>.</p>
+                </div>
+
+                <div class="step-container">
+                    <span class="step-number">Step 05</span>
+                    <p class="step-text">Locate and select the <strong>Download e-Pehchan Card</strong> option.</p>
+                </div>
+
+                <div class="step-container">
+                    <span class="step-number">Step 06</span>
+                    <p class="step-text">Click on <strong>VIEW OR E-PECHAN CARD</strong> to safely pull up and download your document in PDF format.</p>
+                </div>
+            </div>
+
+            <div id="add-dependent" class="tab-content fade-in-up">
+                <h2 class="slide-title-inner">How to Add Dependents</h2>
+                <div class="divider"></div>
+
+                <div class="step-container">
+                    <span class="step-number">Step 01 - 03</span>
+                    <p class="step-text">Log in to the <a href="https://www.esic.in/EmployeePortal/login.aspx" target="_blank" class="inline-link">ESIC Employee Portal</a> under the <strong>Insured Person</strong> interface using your IP Number.</p>
+                </div>
+
+                <div class="step-container">
+                    <span class="step-number">Step 04</span>
+                    <p class="step-text">Once inside your dashboard tracking area, choose the <strong>Update Particulars</strong> menu action item.</p>
+                </div>
+
+                <div class="step-container">
+                    <span class="step-number">Step 05</span>
+                    <p class="step-text">On the alternative employee options dashboard panel, select <strong>Family Details</strong>.</p>
+                </div>
+
+                <div class="step-container">
+                    <span class="step-number">Step 06</span>
+                    <p class="step-text">You will arrive at the family management tracking interface. Click on the <strong>Edit</strong> link to add or tweak dependent listings and map their verification assets.</p>
+                </div>
+
+                <div class="step-container">
+                    <span class="step-number">Step 07</span>
+                    <p class="step-text">Fill in the essential data fields precisely:
+                        <ul>
+                            <li>Full Name (Matching your Aadhaar records explicitly)</li>
+                            <li>Date of Birth & Gender selection</li>
+                            <li>Relationship classifications (Spouse, Son, Daughter, Father, etc.)</li>
+                        </ul>
+                        <br>Pick your validation certificate criteria from the drop-down menu, upload the scanned copy (<strong>Max 200KB</strong>), and click on the <strong>Add</strong> button.
+                    </p>
+                </div>
+                <p style="color: var(--text-muted); font-style: italic;"><i class="fa-solid fa-circle-info"></i> A unique reference confirmation number will prompt successfully, moving the workflow status to 'Pending for Approval'.</p>
+            </div>
+
+            <div id="add-nominee" class="tab-content fade-in-up">
+                <h2 class="slide-title-inner">Enrolling Nominee Details</h2>
+                <div class="divider"></div>
+
+                <div class="step-container">
+                    <span class="step-number">Steps 01 - 03</span>
+                    <p class="step-text">Access the <a href="https://www.esic.in/EmployeePortal/login.aspx" target="_blank" class="inline-link">ESIC Portal</a>, switch to the <strong>Insured Person</strong> channel, and complete the validation screen inputs with your password.</p>
+                </div>
+
+                <div class="step-container">
+                    <span class="step-number">Step 04 - 05</span>
+                    <p class="step-text">Navigate directly to <strong>Update Particulars</strong> and click on the <strong>NOMINEE DETAILS</strong> card option.</p>
+                </div>
+
+                <div class="step-container">
+                    <span class="step-number">Step 06</span>
+                    <p class="step-text">The nomination profile window will launch. Supply the required fields and submit your supporting documentation attachments.</p>
+                </div>
+
+                <h3 style="margin: 30px 0 15px 0; font-family: 'Montserrat'; font-size: 18px;">📋 Mandated Nomination Certificates Checklist:</h3>
+                <div class="doc-grid">
+                    <div class="doc-card">
+                        <h4>Addition of Mother</h4>
+                        <p>Aadhaar Card, PAN Card, and an authorized Income Certificate.</p>
+                    </div>
+                    <div class="doc-card">
+                        <h4>Addition of Father</h4>
+                        <p>Aadhaar Card, PAN Card, and a Notarized Income Certificate copy.</p>
+                    </div>
+                    <div class="doc-card">
+                        <h4>Addition of Spouse</h4>
+                        <p>Aadhaar Card, PAN Card, and your official Marriage Certificate copy.</p>
+                    </div>
+                    <div class="doc-card">
+                        <h4>Addition of Children</h4>
+                        <p><strong>Under 2 Years:</strong> Birth Certificate or Aadhaar.<br><strong>Over 2 Years:</strong> Aadhaar Card is mandatory.</p>
+                    </div>
+                    <div class="doc-grid-full" style="grid-column: span 2;">
+                        <div class="doc-card">
+                            <h4>Bank Account Tracking Updates</h4>
+                            <p>Government ID validation copy alongside matching Voter ID, PAN, or Aadhaar Cards.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="update-personal" class="tab-content fade-in-up">
+                <h2 class="slide-title-inner">Updating Core Profile Information</h2>
+                <div class="divider"></div>
+
+                <div class="step-container">
+                    <span class="step-number">Steps 01 - 03</span>
+                    <p class="step-text">Log in to the official <a href="https://www.esic.in/EmployeePortal/login.aspx" target="_blank" class="inline-link">ESIC Portal</a> using your primary account IP Number credentials.</p>
+                </div>
+
+                <div class="step-container">
+                    <span class="step-number">Step 04 - 05</span>
+                    <p class="step-text">Go to <strong>Update Particulars</strong> and select the <strong>PERSONAL DETAILS</strong> link box configuration.</p>
+                </div>
+
+                <div class="step-container">
+                    <span class="step-number">Step 06 - 07</span>
+                    <p class="step-text">Correct any outdated parameters in the form. Pick your document validation category type and attach the evidence file from your device directory.<br><em>*Supported Formats: PDF, JPG, JPEG | Maximum file size limit: <strong>200KB</strong>.</em></p>
+                </div>
+
+                <div class="step-container">
+                    <span class="step-number">Step 08</span>
+                    <p class="step-text">Click the <strong>Upload</strong> button, acknowledge your legal criteria consent by selecting the <strong>Declaration Checkbox</strong>, and click <strong>Update</strong> to submit your changes for approval.</p>
+                </div>
+
+                <h3 style="margin: 30px 0 15px 0; font-family: 'Montserrat'; font-size: 18px;">📋 Acceptable Evidence Framework for Profile Adjustments:</h3>
+                <div class="doc-grid">
+                    <div class="doc-card">
+                        <h4>Post-Marriage Name Change</h4>
+                        <p>Aadhaar Card accompanied by an official Marriage Certificate.</p>
+                    </div>
+                    <div class="doc-card">
+                        <h4>Clerical / Typo Corrections</h4>
+                        <p>Aadhaar Card, PAN Card, or Voter Identification Card options.</p>
+                    </div>
+                    <div class="doc-card">
+                        <h4>Legal Name / Gender Shifts</h4>
+                        <p>A legally certified and notarized Affidavit document.</p>
+                    </div>
+                    <div class="doc-card">
+                        <h4>Date of Birth Adjustments</h4>
+                        <p>10th Standard Marksheet, Birth Certificate, or School Transfer Certificate (TC).</p>
+                    </div>
+                    <div class="doc-card">
+                        <h4>Spouse Verification (Male Account)</h4>
+                        <p>Wife’s Aadhaar Card (listing husband's name) OR Marriage Certificate.</p>
+                    </div>
+                    <div class="doc-card">
+                        <h4>Spouse Verification (Female Account)</h4>
+                        <p>Personal Aadhaar Card (listing husband's name) OR Marriage Certificate.</p>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <footer class="support-footer">
+        <span><i class="fa-solid fa-headset"></i> Additional Support Reach-out:</span>
+        <span><i class="fa-solid fa-envelope"></i> <strong>esic@phonepe.com</strong></span>
+        <span><i class="fa-solid fa-phone"></i> <strong>9980817665</strong> (Mon–Fri, 10 AM – 6 PM)</span>
+    </footer>
+
+    <script>
+        function showTab(tabId, element) {
+            const contents = document.querySelectorAll('.tab-content');
+            const navItems = document.querySelectorAll('.nav-item');
+            
+            contents.forEach(c => c.classList.remove('active'));
+            navItems.forEach(n => n.classList.remove('active'));
+
+            document.getElementById(tabId).classList.add('active');
+            element.classList.add('active');
+            
+            // Re-trigger CSS workflow execution slide animations
+            const target = document.getElementById(tabId);
+            target.style.animation = 'none';
+            target.offsetHeight; 
+            target.style.animation = null;
+        }
+    </script>
+
+</body>
+</html>
