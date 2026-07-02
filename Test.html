@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ESIC Helpdesk | Simple Employee User Manual</title>
+    <title>ESIC Helpdesk | Compact Employee User Manual</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
@@ -17,7 +17,7 @@
             --sidebar-bg: #001a3d;
             --text-dark: #1a1a1a;
             --text-muted: #555555;
-            --transition: all 0.2s ease;
+            --transition: all 0.15s ease;
         }
 
         * {
@@ -39,7 +39,7 @@
         /* HEADER */
         header {
             background: var(--primary-navy);
-            padding: 15px 40px;
+            padding: 12px 30px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -49,7 +49,7 @@
 
         header h1 {
             font-family: 'Montserrat', sans-serif;
-            font-size: 22px;
+            font-size: 20px;
             color: #ffffff;
             text-transform: uppercase;
         }
@@ -57,20 +57,19 @@
         .portal-btn {
             background: var(--accent-gold);
             color: #fff;
-            padding: 10px 20px;
+            padding: 8px 16px;
             border-radius: 4px;
             text-decoration: none;
             font-weight: 600;
-            font-size: 13px;
+            font-size: 12px;
             transition: var(--transition);
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
         }
 
         .portal-btn:hover {
             background: #8e712f;
-            transform: translateY(-1px);
         }
 
         /* MAIN LAYOUT */
@@ -82,17 +81,17 @@
 
         /* SIDEBAR NAVIGATION */
         .sidebar {
-            width: 360px;
+            width: 340px;
             background: var(--sidebar-bg);
             z-index: 2;
-            padding: 20px 0;
+            padding: 10px 0;
             display: flex;
             flex-direction: column;
             overflow-y: auto;
         }
 
         .nav-item {
-            padding: 15px 25px;
+            padding: 12px 20px;
             color: rgba(255, 255, 255, 0.75);
             cursor: pointer;
             border-left: 4px solid transparent;
@@ -102,14 +101,14 @@
             font-family: 'Montserrat', sans-serif;
             font-size: 13px;
             font-weight: 500;
-            border-bottom: 1px solid rgba(255,255,255,0.03);
+            border-bottom: 1px solid rgba(255,255,255,0.02);
         }
 
         .nav-item i {
-            margin-right: 12px;
-            font-size: 16px;
+            margin-right: 10px;
+            font-size: 14px;
             color: var(--accent-gold);
-            width: 20px;
+            width: 18px;
             text-align: center;
         }
 
@@ -128,13 +127,13 @@
         /* CONTENT AREA */
         .content-area {
             flex: 1;
-            padding: 40px;
+            padding: 25px 40px;
             overflow-y: auto;
         }
 
         .tab-content {
             display: none;
-            max-width: 900px;
+            max-width: 950px;
         }
 
         .tab-content.active {
@@ -143,44 +142,43 @@
 
         .slide-title-inner {
             font-family: 'Montserrat', sans-serif;
-            font-size: 28px;
+            font-size: 24px;
             color: var(--primary-navy);
-            margin-bottom: 5px;
+            margin-bottom: 3px;
         }
 
         .divider {
-            width: 60px;
+            width: 50px;
             height: 3px;
             background: var(--accent-gold);
-            margin-bottom: 25px;
+            margin-bottom: 15px;
         }
 
-        /* COMPACT STEP CONTAINERS */
+        /* MAXIMUM COMPACT STEP CONTAINERS */
         .step-container {
-            position: relative;
-            margin-bottom: 15px;
+            margin-bottom: 8px;
             background: #fff;
-            padding: 15px 20px;
-            border-radius: 6px;
+            padding: 10px 15px;
+            border-radius: 4px;
             border: 1px solid #e2e8f0;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+            box-shadow: 0 1px 2px rgba(0,0,0,0.01);
         }
 
         .step-number {
             display: inline-block;
             background: var(--primary-navy);
             color: #fff;
-            padding: 2px 10px;
-            font-size: 11px;
+            padding: 1px 6px;
+            font-size: 10px;
             font-weight: 700;
-            border-radius: 4px;
-            margin-bottom: 6px;
+            border-radius: 3px;
+            margin-bottom: 4px;
             text-transform: uppercase;
         }
 
         .step-text {
-            font-size: 15px;
-            line-height: 1.5;
+            font-size: 14px;
+            line-height: 1.4;
             color: var(--text-dark);
         }
 
@@ -191,46 +189,54 @@
         }
 
         .note-text {
-            margin-top: 5px;
-            font-size: 13px;
+            margin-top: 3px;
+            font-size: 12px;
             color: #666;
             font-style: italic;
         }
 
-        /* DOCUMENTATION CHECKLIST TABLE */
+        ul {
+            padding-left: 18px;
+            margin-top: 4px;
+        }
+
+        li {
+            margin-bottom: 3px;
+        }
+
+        /* TABLES */
         .table-title {
             font-family: 'Montserrat', sans-serif;
-            font-size: 18px;
+            font-size: 16px;
             color: var(--primary-navy);
-            margin: 30px 0 12px 0;
+            margin: 20px 0 8px 0;
         }
 
         .table-responsive {
             overflow-x: auto;
-            margin-top: 15px;
+            margin-top: 5px;
             background: #fff;
-            border-radius: 8px;
+            border-radius: 6px;
             border: 1px solid #e2e8f0;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
         }
 
         table {
             width: 100%;
             border-collapse: collapse;
-            font-size: 14px;
+            font-size: 13px;
             text-align: left;
         }
 
         th {
             background-color: var(--primary-navy);
             color: white;
-            padding: 12px;
+            padding: 10px;
             font-family: 'Montserrat', sans-serif;
             font-weight: 600;
         }
 
         td {
-            padding: 10px 12px;
+            padding: 8px 10px;
             border-bottom: 1px solid #e2e8f0;
             color: var(--text-dark);
         }
@@ -242,14 +248,14 @@
         .tick-yes {
             color: #22c55e;
             font-weight: bold;
-            font-size: 16px;
+            font-size: 15px;
             text-align: center;
         }
 
         .tick-no {
             color: #ef4444;
             font-weight: bold;
-            font-size: 16px;
+            font-size: 15px;
             text-align: center;
         }
 
@@ -260,12 +266,12 @@
         /* FOOTER SUPPORT BAR */
         .support-footer {
             background: var(--primary-navy);
-            padding: 12px 40px;
+            padding: 10px 40px;
             color: rgba(255, 255, 255, 0.85);
             display: flex;
             justify-content: center;
-            gap: 40px;
-            font-size: 13px;
+            gap: 30px;
+            font-size: 12px;
             border-top: 1px solid rgba(255,255,255,0.1);
             z-index: 10;
         }
@@ -273,25 +279,25 @@
         .support-footer span {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
         }
 
         .support-footer i {
             color: var(--accent-gold);
-            font-size: 15px;
+            font-size: 14px;
         }
 
         .support-footer strong {
             color: #fff;
         }
 
-        /* ANIMATION EFFECTS */
+        /* ANIMATION */
         .fade-in-up {
-            animation: fadeInUp 0.3s ease-out forwards;
+            animation: fadeInUp 0.2s ease-out forwards;
         }
 
         @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(10px); }
+            from { opacity: 0; transform: translateY(5px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
@@ -322,7 +328,7 @@
                 <i class="fa-solid fa-user-shield"></i> 3. Add Nominee
             </div>
             <div class="nav-item" onclick="showTab('update-personal', this)">
-                <i class="fa-solid fa-user-pen"></i> 4. Update Personal Details
+                <i class="fa-solid fa-user-pen"></i> 4. Update Personal & Bank Details
             </div>
             <div class="nav-item" onclick="showTab('aadhaar-seeding', this)">
                 <i class="fa-solid fa-mobile-screen-button"></i> 5. Aadhaar Seeding (Mobile App)
@@ -339,28 +345,23 @@
                     <span class="step-number">Step 1</span>
                     <p class="step-text">Open the website. <a href="https://portal.esic.gov.in/EmployeePortal/login.aspx" target="_blank" class="inline-link">Click here to visit ESIC Employee Portal</a>. Select the <strong>Insured Person</strong> option.</p>
                 </div>
-
                 <div class="step-container">
                     <span class="step-number">Step 2</span>
                     <p class="step-text">The website will now open the Employee Login page.</p>
                 </div>
-
                 <div class="step-container">
                     <span class="step-number">Step 3</span>
                     <p class="step-text">Type your <strong>ESIC IP Number</strong> and password to log in.</p>
                     <p class="note-text">Note: If you forget your password, click 'Forgot Password'. It will send an OTP to your phone. Enter the OTP and make a new password.</p>
                 </div>
-
                 <div class="step-container">
                     <span class="step-number">Step 4</span>
                     <p class="step-text">After logging in, you will see your main profile Dashboard page.</p>
                 </div>
-
                 <div class="step-container">
                     <span class="step-number">Step 5</span>
                     <p class="step-text">Click on the button that says <strong>Download e-Pehchan Card</strong>.</p>
                 </div>
-
                 <div class="step-container">
                     <span class="step-number">Step 6</span>
                     <p class="step-text">Click on <strong>VIEW OR E-PECHAN CARD</strong>. Your card will download on your screen as a PDF file.</p>
@@ -375,42 +376,34 @@
                     <span class="step-number">Step 1</span>
                     <p class="step-text">Open the website. <a href="https://portal.esic.gov.in/EmployeePortal/login.aspx" target="_blank" class="inline-link">Click here to visit ESIC Employee Portal</a>. Select the <strong>Insured Person</strong> option.</p>
                 </div>
-
                 <div class="step-container">
                     <span class="step-number">Step 2</span>
                     <p class="step-text">The website will open the Employee Login page.</p>
                 </div>
-
                 <div class="step-container">
                     <span class="step-number">Step 3</span>
                     <p class="step-text">Type your <strong>ESIC IP Number</strong> and password to log in.</p>
                 </div>
-
                 <div class="step-container">
                     <span class="step-number">Step 4</span>
                     <p class="step-text">After a successful login, click on the option named <strong>Update Particulars</strong>.</p>
                 </div>
-
                 <div class="step-container">
                     <span class="step-number">Step 5</span>
                     <p class="step-text">On the next screen, click on <strong>Family Details</strong>.</p>
                 </div>
-
                 <div class="step-container">
                     <span class="step-number">Step 6</span>
                     <p class="step-text">Now you will see a screen to add or edit family members. Click on the <strong>Edit</strong> link to start adding your family dependent's info.</p>
                 </div>
-
                 <div class="step-container">
                     <span class="step-number">Step 7</span>
                     <p class="step-text">Type the member's details: Full Name (Exactly as written on their Identity document), Date of Birth, Gender, and Relationship (like Spouse, Son, Daughter, Father).</p>
                 </div>
-
                 <div class="step-container">
                     <span class="step-number">Step 8</span>
                     <p class="step-text">Select the type of Document Proof from the dropdown box. Click on the <strong>Choose File</strong> button, select the document saved on your device (Must be less than <strong>200KB</strong> size), and click open.</p>
                 </div>
-
                 <div class="step-container">
                     <span class="step-number">Step 9</span>
                     <p class="step-text">Click on the <strong>Add</strong> button. A reference number will be generated on your screen. Your request is now sent and is pending for approval.</p>
@@ -425,40 +418,35 @@
                     <span class="step-number">Step 1</span>
                     <p class="step-text">Open the website. <a href="https://portal.esic.gov.in/EmployeePortal/login.aspx" target="_blank" class="inline-link">Click here to visit ESIC Employee Portal</a>. Select the <strong>Insured Person</strong> option.</p>
                 </div>
-
                 <div class="step-container">
                     <span class="step-number">Step 2</span>
                     <p class="step-text">The website will redirect you to the Employee Login page.</p>
                 </div>
-
                 <div class="step-container">
                     <span class="step-number">Step 3</span>
                     <p class="step-text">Type your <strong>ESIC IP Number</strong> and password to log in.</p>
                 </div>
-
                 <div class="step-container">
                     <span class="step-number">Step 4</span>
                     <p class="step-text">After logging in, look at the dashboard options and select <strong>Update Particulars</strong>.</p>
                 </div>
-
                 <div class="step-container">
                     <span class="step-number">Step 5</span>
                     <p class="step-text">From the list, click on the option named <strong>NOMINEE DETAILS</strong>.</p>
                 </div>
-
                 <div class="step-container">
                     <span class="step-number">Step 6</span>
                     <p class="step-text">Fill in the nominee details on the screen, select the proof type, attach your file, and submit for verification.</p>
                 </div>
 
-                <h3 class="table-title">📋 Document Requirements Checklist</h3>
+                <h3 class="table-title">📋 Nominee Document Requirements Checklist</h3>
                 <div class="table-responsive">
                     <table>
                         <thead>
                             <tr>
-                                <th>Nominee / Query Type</th>
-                                <th class="text-center">Identity Document</th>
-                                <th class="text-center">PAN Card</th>
+                                <th>Nominee Type</th>
+                                <th class="text-center">Aadhaar Card / Ration Card</th>
+                                <th class="text-center">PAN Card / Voter ID</th>
                                 <th class="text-center">Income / Notary Certificate</th>
                                 <th class="text-center">Marriage Certificate</th>
                                 <th class="text-center">Birth Certificate</th>
@@ -505,72 +493,57 @@
                                 <td class="tick-no"><i class="fa-solid fa-xmark"></i></td>
                                 <td class="tick-no"><i class="fa-solid fa-xmark"></i></td>
                             </tr>
-                            <tr>
-                                <td><strong>Bank Updates</strong> / Correction</td>
-                                <td class="tick-yes"><i class="fa-solid fa-check"></i> (Govt ID/Voter)</td>
-                                <td class="tick-yes"><i class="fa-solid fa-check"></i></td>
-                                <td class="tick-no"><i class="fa-solid fa-xmark"></i></td>
-                                <td class="tick-no"><i class="fa-solid fa-xmark"></i></td>
-                                <td class="tick-no"><i class="fa-solid fa-xmark"></i></td>
-                            </tr>
                         </tbody>
                     </table>
                 </div>
             </div>
 
             <div id="update-personal" class="tab-content fade-in-up">
-                <h2 class="slide-title-inner">How to update personal details in ESIC?</h2>
+                <h2 class="slide-title-inner">How to update personal and bank details in ESIC?</h2>
                 <div class="divider"></div>
 
                 <div class="step-container">
                     <span class="step-number">Step 1</span>
                     <p class="step-text">Open the website. <a href="https://portal.esic.gov.in/EmployeePortal/login.aspx" target="_blank" class="inline-link">Click here to visit ESIC Employee Portal</a>. Select the <strong>Insured Person</strong> option.</p>
                 </div>
-
                 <div class="step-container">
                     <span class="step-number">Step 2</span>
                     <p class="step-text">The website changes to the Employee Login page setup.</p>
                 </div>
-
                 <div class="step-container">
                     <span class="step-number">Step 3</span>
                     <p class="step-text">Type your <strong>ESIC IP Number</strong> and password to sign into your account.</p>
                 </div>
-
                 <div class="step-container">
                     <span class="step-number">Step 4</span>
                     <p class="step-text">Go to the main dashboard menu links and click on <strong>Update Particulars</strong>.</p>
                 </div>
-
                 <div class="step-container">
                     <span class="step-number">Step 5</span>
-                    <p class="step-text">From the options list, choose and open <strong>PERSONAL DETAILS</strong>.</p>
+                    <p class="step-text">From the options list, choose and open <strong>PERSONAL DETAILS</strong> (or select Bank Details depending on what you want to change).</p>
                 </div>
-
                 <div class="step-container">
                     <span class="step-number">Step 6</span>
                     <p class="step-text">The screen will let you edit your information. Type the new correct data into the empty boxes.</p>
                 </div>
-
                 <div class="step-container">
                     <span class="step-number">Step 7</span>
                     <p class="step-text">Select your Proof Type from the dropdown list. Click on the <strong>Choose File</strong> button to upload your document copy. <br><em>*Rules: Files must be PDF, JPG, or JPEG format only, and under <strong>200KB</strong> file size limit.</em></p>
                 </div>
-
                 <div class="step-container">
                     <span class="step-number">Step 8</span>
                     <p class="step-text">Click on the <strong>Upload</strong> button. Mark the little <strong>Declaration Checkbox</strong> to give your consent, then hit the final <strong>Update</strong> button to submit your change request.</p>
                 </div>
 
-                <h3 class="table-title">📋 Document Requirements for Personal Corrections</h3>
+                <h3 class="table-title">📋 Document Requirements for Personal & Bank Corrections</h3>
                 <div class="table-responsive">
                     <table>
                         <thead>
                             <tr>
                                 <th>Correction Type Requested</th>
-                                <th class="text-center">Identity Document</th>
+                                <th class="text-center">Aadhaar Card / Ration Card</th>
+                                <th class="text-center">PAN Card / Voter ID</th>
                                 <th class="text-center">Marriage Certificate</th>
-                                <th class="text-center">Notarized Affidavit</th>
                                 <th class="text-center">10th Marksheet / Birth TC</th>
                             </tr>
                         </thead>
@@ -578,22 +551,22 @@
                             <tr>
                                 <td><strong>Name Change</strong> (Due to Marriage)</td>
                                 <td class="tick-yes"><i class="fa-solid fa-check"></i></td>
-                                <td class="tick-yes"><i class="fa-solid fa-check"></i></td>
                                 <td class="tick-no"><i class="fa-solid fa-xmark"></i></td>
+                                <td class="tick-yes"><i class="fa-solid fa-check"></i></td>
                                 <td class="tick-no"><i class="fa-solid fa-xmark"></i></td>
                             </tr>
                             <tr>
                                 <td><strong>Minor Spelling Fixes</strong> (Typo error)</td>
-                                <td class="tick-yes"><i class="fa-solid fa-check"></i> (PAN/Voter)</td>
-                                <td class="tick-no"><i class="fa-solid fa-xmark"></i></td>
+                                <td class="tick-yes"><i class="fa-solid fa-check"></i></td>
+                                <td class="tick-yes"><i class="fa-solid fa-check"></i></td>
                                 <td class="tick-no"><i class="fa-solid fa-xmark"></i></td>
                                 <td class="tick-no"><i class="fa-solid fa-xmark"></i></td>
                             </tr>
                             <tr>
-                                <td><strong>Legal Name / Gender Change</strong></td>
-                                <td class="tick-no"><i class="fa-solid fa-xmark"></i></td>
-                                <td class="tick-no"><i class="fa-solid fa-xmark"></i></td>
+                                <td><strong>Gender Change</strong></td>
                                 <td class="tick-yes"><i class="fa-solid fa-check"></i></td>
+                                <td class="tick-yes"><i class="fa-solid fa-check"></i></td>
+                                <td class="tick-no"><i class="fa-solid fa-xmark"></i></td>
                                 <td class="tick-no"><i class="fa-solid fa-xmark"></i></td>
                             </tr>
                             <tr>
@@ -602,6 +575,13 @@
                                 <td class="tick-no"><i class="fa-solid fa-xmark"></i></td>
                                 <td class="tick-no"><i class="fa-solid fa-xmark"></i></td>
                                 <td class="tick-yes"><i class="fa-solid fa-check"></i></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Bank Account Update</strong></td>
+                                <td class="tick-yes"><i class="fa-solid fa-check"></i> (Govt / Ration)</td>
+                                <td class="tick-yes"><i class="fa-solid fa-check"></i></td>
+                                <td class="tick-no"><i class="fa-solid fa-xmark"></i></td>
+                                <td class="tick-no"><i class="fa-solid fa-xmark"></i></td>
                             </tr>
                         </tbody>
                     </table>
@@ -616,38 +596,32 @@
                     <span class="step-number">Step 1</span>
                     <p class="step-text">Download the <strong>ESIC Health Connect Application</strong> and the <strong>Aadhaar Face RD Application</strong> on your mobile phone from the app store.</p>
                 </div>
-
                 <div class="step-container">
                     <span class="step-number">Step 2</span>
                     <p class="step-text">Open the ESIC app and tap on the <strong>Insured Person</strong> option.</p>
                 </div>
-
                 <div class="step-container">
                     <span class="step-number">Step 3</span>
                     <p class="step-text">Enter your <strong>10 Digit ESIC IP number</strong> into the box.</p>
                 </div>
-
                 <div class="step-container">
                     <span class="step-number">Step 4</span>
                     <p class="step-text">Type the security <strong>OTP</strong> number that you received on your registered mobile phone.</p>
                 </div>
-
                 <div class="step-container">
                     <span class="step-number">Step 5</span>
                     <p class="step-text">Once the ESIC Health Connect app logs in successfully, tap and open the <strong>Service</strong> option menu.</p>
                 </div>
-
                 <div class="step-container">
                     <span class="step-number">Step 6</span>
                     <p class="step-text">Tap on the <strong>Aadhaar seeding</strong> option, then select the <strong>seed aadhaar</strong> button link.</p>
                 </div>
-
                 <div class="step-container">
                     <span class="step-number">Step 7</span>
                     <p class="step-text">Enter your <strong>12 Digit Identity card number</strong> into the form and tap on the <strong>Face Authentication</strong> option button.</p>
                 </div>
                 
-                <p style="color: var(--text-muted); font-style: italic; margin-top: 10px;"><i class="fa-solid fa-circle-check" style="color:#22c55e;"></i> Once the process is finished, your dashboard profile will display your status as 'Verified'.</p>
+                <p style="color: var(--text-muted); font-style: italic; margin-top: 5px;"><i class="fa-solid fa-circle-check" style="color:#22c55e;"></i> Once your Aadhaar seeding completed it will Aadhaar status verified.</p>
             </div>
 
         </main>
@@ -670,7 +644,6 @@
             document.getElementById(tabId).classList.add('active');
             element.classList.add('active');
             
-            // Re-trigger visual entry animations
             const target = document.getElementById(tabId);
             target.style.animation = 'none';
             target.offsetHeight; 
